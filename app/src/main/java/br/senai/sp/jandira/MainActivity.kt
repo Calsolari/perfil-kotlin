@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -60,24 +62,26 @@ fun Perfil(){
     Column (
         modifier = Modifier
             .fillMaxSize()
+            .background(color = Color(0xFFC7E2FE))
     ){
         Row(modifier = Modifier
             .fillMaxWidth()
             .padding(12.dp)
             .height(330.dp)
-            .background(color = Color.Black)) {
+        ) {
 
                 Icon(modifier = Modifier.padding(vertical = 7.dp),
                     imageVector = Icons.Default.ArrowBackIosNew,
                     contentDescription = "BackArrow",
-                    tint = Color.White)
+                    tint = Color.Black)
 
             Column {
                 Box( modifier = Modifier.fillMaxSize()) {
                     Text(
                         modifier = Modifier.align(Alignment.TopCenter),
                         text = "Perfil",
-                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black,
                         fontSize = 26.sp
                     )
 
@@ -92,11 +96,21 @@ fun Perfil(){
                     Text(
                         modifier = Modifier
                             .align(Alignment.BottomCenter)
-                            .padding(bottom = 25.dp),
+                            .padding(bottom = 45.dp),
                         text = "James Smith",
-                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black,
                         fontSize = 26.sp
                     )
+
+                    Image(
+                        painter = painterResource(id = R.drawable.aluno),
+                        contentDescription = "tag",
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .size(height = 33.dp, width = 151.dp)
+                    )
+
                 }
             }
             
@@ -109,7 +123,7 @@ fun Perfil(){
             .fillMaxWidth()
             .padding(12.dp)
             .height(330.dp)
-            .background(color = Color.Yellow)){
+            ){
 
             Card(
                 modifier = Modifier
@@ -117,7 +131,7 @@ fun Perfil(){
                     .padding(16.dp),
                 shape = RoundedCornerShape(16.dp),
                 elevation = CardDefaults.cardElevation(8.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFE0F7FA)) // Cor de fundo azul claro
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFFFFFFF)) // Cor de fundo azul claro
             ) {
                 Row(
                     modifier = Modifier
@@ -127,11 +141,12 @@ fun Perfil(){
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     // Ícone de "like"
-                    Icon(
-                        imageVector = Icons.Default.ThumbUp,
-                        contentDescription = "Like",
-                        modifier = Modifier.size(40.dp),
-                        tint = Color(0xFFFFC107) // Cor amarela
+                    Image(
+                        painter = painterResource(id = R.drawable.image5),
+                        contentDescription = "perfil",
+                        modifier = Modifier
+                            .size(width = 60.dp, height = 70.dp)
+
                     )
 
                     Spacer(modifier = Modifier.width(16.dp))
@@ -153,27 +168,33 @@ fun Perfil(){
                         Row {
                             Button(
                                 onClick = { /* TODO: Ação dos Vídeos */ },
-                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E88E5)),
-                                modifier = Modifier.padding(end = 8.dp),
-                                shape = RoundedCornerShape(16.dp),
+                                colors = ButtonDefaults.buttonColors(containerColor = Color(0x00FFFFFF)),
+                                modifier = Modifier.padding(end = 8.dp)
+                                .border(border = BorderStroke(2.dp, Color(0xFF345ADE)),
+                            shape = RoundedCornerShape(16.dp)),
                                 contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
                             ) {
                                 Text(
                                     text = "4 Vídeos",
-                                    color = Color.White,
+                                    color = Color(0xFF345ADE),
                                     fontSize = 12.sp
                                 )
                             }
 
                             Button(
+                                modifier = Modifier.border(border = BorderStroke(2.dp, Color(0xFFFEC608)),
+                                    shape = RoundedCornerShape(16.dp)),
                                 onClick = { /* TODO: Ação das Atividades */ },
-                                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFA000)),
-                                shape = RoundedCornerShape(16.dp),
-                                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
+                                colors = ButtonDefaults.buttonColors(containerColor = Color(
+                                    0x00FFFFFF
+                                )
+                                ),
+
+                                contentPadding = PaddingValues(horizontal = 5.dp, vertical = 4.dp)
                             ) {
                                 Text(
                                     text = "2 Atividades",
-                                    color = Color.White,
+                                    color = Color(0xFFFEC608),
                                     fontSize = 12.sp
                                 )
                             }
