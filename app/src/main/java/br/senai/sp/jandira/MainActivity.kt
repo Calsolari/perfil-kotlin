@@ -57,26 +57,28 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Perfil(){
+fun Perfil() {
 
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color(0xFFC7E2FE))
-    ){
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(12.dp)
-            .height(330.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+                .height(330.dp)
         ) {
-
-                Icon(modifier = Modifier.padding(vertical = 7.dp),
-                    imageVector = Icons.Default.ArrowBackIosNew,
-                    contentDescription = "BackArrow",
-                    tint = Color.Black)
+            Icon(
+                modifier = Modifier.padding(vertical = 7.dp),
+                imageVector = Icons.Default.ArrowBackIosNew,
+                contentDescription = "BackArrow",
+                tint = Color.Black
+            )
 
             Column {
-                Box( modifier = Modifier.fillMaxSize()) {
+                Box(modifier = Modifier.fillMaxSize()) {
                     Text(
                         modifier = Modifier.align(Alignment.TopCenter),
                         text = "Perfil",
@@ -110,28 +112,23 @@ fun Perfil(){
                             .align(Alignment.BottomCenter)
                             .size(height = 33.dp, width = 151.dp)
                     )
-
                 }
             }
-            
-
-
-
-
         }
-        Row (modifier = Modifier
-            .fillMaxWidth()
-            .padding(12.dp)
-            .height(330.dp)
-            ){
 
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+                .height(330.dp)
+        ) {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
                 shape = RoundedCornerShape(16.dp),
                 elevation = CardDefaults.cardElevation(8.dp),
-                colors = CardDefaults.cardColors(containerColor = Color(0xFFFFFFFF)) // Cor de fundo azul claro
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFFFFFFF))
             ) {
                 Row(
                     modifier = Modifier
@@ -140,13 +137,10 @@ fun Perfil(){
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Ícone de "like"
                     Image(
                         painter = painterResource(id = R.drawable.image5),
                         contentDescription = "perfil",
-                        modifier = Modifier
-                            .size(width = 60.dp, height = 70.dp)
-
+                        modifier = Modifier.size(width = 60.dp, height = 70.dp)
                     )
 
                     Spacer(modifier = Modifier.width(16.dp))
@@ -154,7 +148,6 @@ fun Perfil(){
                     Column(
                         modifier = Modifier.weight(1f)
                     ) {
-                        // Título
                         Text(
                             text = "NÚMEROS",
                             fontSize = 18.sp,
@@ -164,14 +157,18 @@ fun Perfil(){
 
                         Spacer(modifier = Modifier.height(8.dp))
 
-                        // Botões de Vídeos e Atividades
                         Row {
                             Button(
                                 onClick = { /* TODO: Ação dos Vídeos */ },
-                                colors = ButtonDefaults.buttonColors(containerColor = Color(0x00FFFFFF)),
-                                modifier = Modifier.padding(end = 8.dp)
-                                .border(border = BorderStroke(2.dp, Color(0xFF345ADE)),
-                            shape = RoundedCornerShape(16.dp)),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = Color(0x00FFFFFF)
+                                ),
+                                modifier = Modifier
+                                    .padding(end = 8.dp)
+                                    .border(
+                                        border = BorderStroke(2.dp, Color(0xFF345ADE)),
+                                        shape = RoundedCornerShape(16.dp)
+                                    ),
                                 contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
                             ) {
                                 Text(
@@ -182,14 +179,14 @@ fun Perfil(){
                             }
 
                             Button(
-                                modifier = Modifier.border(border = BorderStroke(2.dp, Color(0xFFFEC608)),
-                                    shape = RoundedCornerShape(16.dp)),
-                                onClick = { /* TODO: Ação das Atividades */ },
-                                colors = ButtonDefaults.buttonColors(containerColor = Color(
-                                    0x00FFFFFF
-                                )
+                                modifier = Modifier.border(
+                                    border = BorderStroke(2.dp, Color(0xFFFEC608)),
+                                    shape = RoundedCornerShape(16.dp)
                                 ),
-
+                                onClick = { /* TODO: Ação das Atividades */ },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = Color(0x00FFFFFF)
+                                ),
                                 contentPadding = PaddingValues(horizontal = 5.dp, vertical = 4.dp)
                             ) {
                                 Text(
@@ -203,37 +200,68 @@ fun Perfil(){
 
                     Spacer(modifier = Modifier.width(16.dp))
 
-                    // Gráfico Circular (ProgressIndicator)
                     Box(
-                        contentAlignment = Alignment.Center, // Centraliza o conteúdo dentro do Box
-                        modifier = Modifier.size(48.dp) // Define o tamanho do Box
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.size(48.dp)
                     ) {
-                        // Gráfico Circular (ProgressIndicator)
                         CircularProgressIndicator(
-                            progress = 0.65f, // 65% de progresso
-                            modifier = Modifier.fillMaxSize(), // Faz o CircularProgressIndicator ocupar todo o Box
-                            color = Color(0xFF4CAF50), // Cor verde
+                            progress = 0.65f,
+                            modifier = Modifier.fillMaxSize(),
+                            color = Color(0xFF4CAF50),
                             strokeWidth = 6.dp
                         )
 
-                        // Texto com percentual
                         Text(
                             text = "65%",
-                            fontSize = 14.sp, // Tamanho da fonte ajustado para caber melhor
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         )
                     }
                 }
-                }
             }
-
         }
 
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Button(
+                onClick = { /* Ação do botão */ },
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0F1951)),
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier
+                    .padding(3.dp)
+                    .height(48.dp)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.message),
+                        contentDescription = "Ícone de mensagem",
+                        tint = Color(0xFFD1E3FF),
+                        modifier = Modifier.size(24.dp)
+                    )
+
+                    Spacer(modifier = Modifier.width(8.dp))
+
+                    Text(
+                        text = "Mensagem",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFFD1E3FF)
+                    )
+                }
+            }
+        }
     }
+}
 
-
-@Preview(showBackground = true, showSystemUi = true )
+    @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
     TelaPerfilSinalibrasTheme {
